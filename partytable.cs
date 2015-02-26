@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Security.Cryptography;
 using System.Net;
 
 namespace KeySigningPartyList
@@ -46,9 +40,7 @@ table td pre { margin: 0; }");
             Console.WriteLine("</style>");
             Console.WriteLine("</head>\n");
             Console.WriteLine("<body>\n");
-            Console.WriteLine("<h1>Copenhagen OpenPGP Keysigning Party</h1>\n");
-            Console.WriteLine("<h2>Ørsted Ølbar - 27. februar 2015 18:00</h2>");
-            Console.WriteLine("<small>Vil du have din key med på listen? Mail hele din public key til <a href=\"mailto:keysigning@graffen.dk\">keysigning@graffen.dk</a></small>");
+            Console.WriteLine("<h1>Keysigning Party</h1>\n");
             Console.WriteLine("<table><tr><th>#</th><th>Key ID</th><th>Owner</th><th>Fingerprint</th><th>Size</th><th>Type</th><th>Key Info<br />Matches?</th><th>Owner ID<br />Matches?</th></tr>\n");
             int count = 1;
             foreach (var line in keyInfoStr.Split('\n'))
