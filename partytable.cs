@@ -116,7 +116,7 @@ namespace KeySigningPartyList
 
                 if (havePubKey && haveUidForPubKey && haveFprForPubKey)
                 {
-                    Console.WriteLine("\t<tr><td>{5}</td><td><pre>{0}</pre></td><td>{1}</td><td><pre>{2}</pre></td><td>{3}</td><td>{4}</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n", keyId, WebUtility.HtmlEncode(uid), SplitFingerPrint(fpr), keyLength, keyType, count);
+                    Console.WriteLine(GenerateHtmlTableRow(count, keyId, uid, fpr, keyLength, keyType));
                     havePubKey = false;
                     haveUidForPubKey = false;
                     haveFprForPubKey = false;
@@ -142,9 +142,14 @@ table td pre { margin: 0; }");
             html.AppendLine("</style>");
             html.AppendLine("</head>\n");
             html.AppendLine("<body>\n");
-            html.AppendLine("<h1>Keysigning Party</h1>\n");
+            html.AppendLine("<h1>Keysigning Party</h1>\n"); 
             html.AppendLine("<table><tr><th>#</th><th>Key ID</th><th>Owner</th><th>Fingerprint</th><th>Size</th><th>Type</th><th>Key Info<br />Matches?</th><th>Owner ID<br />Matches?</th></tr>\n");
             return html.ToString();
+        }
+
+        private static string GenerateHtmlTableRow(int rowNo, string keyId, string uid, string fingerprint, string keyLength, string keyType)
+        {
+            return String.Format("\t<tr><td>{0}</td><td><pre>{1}</pre></td><td>{2}</td><td><pre>{3}</pre></td><td>{4}</td><td>{5}</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n", rowNo, keyId, WebUtility.HtmlEncode(uid), SplitFingerPrint(fingerprint), keyLength, keyType);
         }
 
         private static string GenerateHtmlFooter() 
