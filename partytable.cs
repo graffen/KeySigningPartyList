@@ -85,6 +85,7 @@ table td pre { margin: 0; }");
                 }
             }
             Console.WriteLine("</table>\n");
+            Console.WriteLine("<small>List generated: {0}</small>", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             Console.WriteLine("</body>\n");
             Console.WriteLine("</html>\n");
         }
@@ -99,7 +100,7 @@ table td pre { margin: 0; }");
                 case "20":
                     return "El Gamal";
                 case "22":
-                    return "ed25519";
+                    return "ECDSA";
                 default:
                     return "Unknown";
             }
