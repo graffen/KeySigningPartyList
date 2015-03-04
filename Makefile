@@ -1,3 +1,5 @@
+.PHONY: clean
+
 all: partytable.exe
 
 partytable.exe: partytable.cs
