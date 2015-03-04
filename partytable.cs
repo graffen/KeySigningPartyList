@@ -149,14 +149,22 @@ table td pre { margin: 0; }");
 
         private static string GenerateHtmlTableRow(int rowNo, string keyId, string uid, string fingerprint, string keyLength, string keyType)
         {
-            return String.Format("\t<tr><td>{0}</td><td><pre>{1}</pre></td><td>{2}</td><td><pre>{3}</pre></td><td>{4}</td><td>{5}</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n", rowNo, keyId, WebUtility.HtmlEncode(uid), SplitFingerPrint(fingerprint), keyLength, keyType);
+            return String.Format("\t<tr><td>{0}</td><td><pre>{1}</pre></td><td>{2}</td><td><pre>{3}</pre></td><td>{4}</td><td>{5}</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n", 
+                rowNo, 
+                keyId, 
+                WebUtility.HtmlEncode(uid), 
+                SplitFingerPrint(fingerprint), 
+                keyLength, 
+                keyType);
         }
 
         private static string GenerateHtmlFooter() 
         {
             var html = new StringBuilder();
             html.AppendLine("</table>\n");
-            html.AppendLine(String.Format("<small>List generated: {0}</small>", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
+            html.AppendLine(
+                String.Format("<small>List generated: {0}</small>", 
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             html.AppendLine("</body>\n");
             html.AppendLine("</html>\n");
             return html.ToString();
