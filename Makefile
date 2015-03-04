@@ -1,5 +1,3 @@
-.PHONY: partytable.cs
-
 all: partytable.exe
 
 partytable.exe: partytable.cs
