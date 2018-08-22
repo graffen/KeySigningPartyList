@@ -58,7 +58,7 @@ namespace KeySigningPartyList
             Process p = new Process();
             p.StartInfo.UseShellExecute = false; 
             p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.FileName = "gpg2";
+            p.StartInfo.FileName = "gpg";
             p.StartInfo.Arguments = "--fingerprint --no-default-keyring --no-options --with-colons --keyring " + keyring;
             p.Start();
 
